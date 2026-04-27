@@ -52,7 +52,7 @@ Common ones:
 
 ## What you fill in
 
-- `[[tool.inputs]]` — typed input ports
-- `[[tool.outputs]]` — typed output ports
+- `[[tool.inputs]]` - typed input ports
+- `[[tool.outputs]]` - typed output ports
 - Adjust `[tool.hardware]` if the tool has known requirements
 - Correct `[tool.entrypoint]` if the auto-detected command is wrong
