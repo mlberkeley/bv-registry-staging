@@ -1,0 +1,47 @@
+# Auto-generated from Bioconda recipe by bv-ingest.
+# Fill in [[tool.inputs]] and [[tool.outputs]] before promoting to bv-registry.
+# Run `bv-ingest promote 2pg_cartesian 1.0.1` when ready.
+
+[tool]
+id = "2pg_cartesian"
+version = "1.0.1"
+description = "2pg cartesian is a framework of optimization algorithms for protein structure prediction."
+homepage = "https://github.com/rodrigofaccioli/2pg_cartesian"
+license = "Apache License, Version 2.0"
+
+[tool.image]
+backend = "docker"
+reference = "quay.io/biocontainers/2pg_cartesian:1.0.1--h503566f_8"
+digest = "sha256:88cfd88031f36b884476994f54ef0c8d2f487ca00e0431d5c572e1813e1cc17e"
+
+[tool.hardware]
+# TODO: update if this tool has known hardware requirements
+cpu_cores = 1
+ram_gb = 2.0
+disk_gb = 1.0
+
+# TODO: declare typed I/O before promoting to bv-registry.
+# Available types: https://github.com/mlberkeley/bv/blob/main/bv-types/types.toml
+#
+# Example:
+# [[tool.inputs]]
+# name = "query"
+# type = "fasta"
+# cardinality = "one"
+# description = "Input sequences"
+#
+# [[tool.outputs]]
+# name = "output"
+# type = "blast_tab"
+# cardinality = "one"
+# description = "Results"
+
+[tool.entrypoint]
+# Auto-detected from recipe test commands. Verify this is correct.
+command = "protpred-Gromacs-Test_random_number"
+
+# Auto-detected from recipe test commands. Verify and add any missing binaries.
+[tool.binaries]
+exposed = [
+  "protpred-Gromacs-Test_random_number",
+]
