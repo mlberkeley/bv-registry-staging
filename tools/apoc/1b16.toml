@@ -1,0 +1,47 @@
+# Auto-generated from Bioconda recipe by bv-ingest.
+# Fill in [[tool.inputs]] and [[tool.outputs]] before promoting to bv-registry.
+# Run `bv-ingest promote apoc 1b16` when ready.
+
+[tool]
+id = "apoc"
+version = "1b16"
+description = "Large-scale structural comparison of protein pockets"
+homepage = "http://cssb.biology.gatech.edu/APoc"
+license = "This software is freely available to ALL users."
+
+[tool.image]
+backend = "docker"
+reference = "quay.io/biocontainers/apoc:1b16--0"
+digest = "sha256:3d77457012c6362cdf1dacdeb19a72d847fb65a8a8e28a7ab146d50c0c66281d"
+
+[tool.hardware]
+# TODO: update if this tool has known hardware requirements
+cpu_cores = 1
+ram_gb = 2.0
+disk_gb = 1.0
+
+# TODO: declare typed I/O before promoting to bv-registry.
+# Available types: https://github.com/mlberkeley/bv/blob/main/bv-types/types.toml
+#
+# Example:
+# [[tool.inputs]]
+# name = "query"
+# type = "fasta"
+# cardinality = "one"
+# description = "Input sequences"
+#
+# [[tool.outputs]]
+# name = "output"
+# type = "blast_tab"
+# cardinality = "one"
+# description = "Results"
+
+[tool.entrypoint]
+# Auto-detected from recipe test commands. Verify this is correct.
+command = "apoc"
+
+# Auto-detected from recipe test commands. Verify and add any missing binaries.
+[tool.binaries]
+exposed = [
+  "apoc",
+]
