@@ -1,0 +1,47 @@
+# Auto-generated from Bioconda recipe by bv-ingest.
+# Fill in [[tool.inputs]] and [[tool.outputs]] before promoting to bv-registry.
+# Run `bv-ingest promote admixture 1.3.0` when ready.
+
+[tool]
+id = "admixture"
+version = "1.3.0"
+description = "ADMIXTURE is a software tool for maximum likelihood estimation of individual ancestries from multilocus SNP genotype datasets."
+homepage = "http://www.genetics.ucla.edu/software/admixture/index.html"
+license = "Free for Academic Use"
+
+[tool.image]
+backend = "docker"
+reference = "quay.io/biocontainers/admixture:1.3.0--0"
+digest = "sha256:645a7158dd202d6374b243b9278efa777ba5f1ea26678261af71d41c6b3f5d45"
+
+[tool.hardware]
+# TODO: update if this tool has known hardware requirements
+cpu_cores = 1
+ram_gb = 2.0
+disk_gb = 1.0
+
+# TODO: declare typed I/O before promoting to bv-registry.
+# Available types: https://github.com/mlberkeley/bv/blob/main/bv-types/types.toml
+#
+# Example:
+# [[tool.inputs]]
+# name = "query"
+# type = "fasta"
+# cardinality = "one"
+# description = "Input sequences"
+#
+# [[tool.outputs]]
+# name = "output"
+# type = "blast_tab"
+# cardinality = "one"
+# description = "Results"
+
+[tool.entrypoint]
+# Auto-detected from recipe test commands. Verify this is correct.
+command = "admixture"
+
+# Auto-detected from recipe test commands. Verify and add any missing binaries.
+[tool.binaries]
+exposed = [
+  "admixture",
+]
