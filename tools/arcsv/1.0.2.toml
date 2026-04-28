@@ -1,0 +1,47 @@
+# Auto-generated from Bioconda recipe by bv-ingest.
+# Fill in [[tool.inputs]] and [[tool.outputs]] before promoting to bv-registry.
+# Run `bv-ingest promote arcsv 1.0.2` when ready.
+
+[tool]
+id = "arcsv"
+version = "1.0.2"
+description = "A pipeline to detect SV in archaic human"
+homepage = "https://github.com/xuxif/ArcSV"
+license = "GPL-3.0"
+
+[tool.image]
+backend = "docker"
+reference = "quay.io/biocontainers/arcsv:1.0.2--hdfd78af_0"
+digest = "sha256:5d41245ef7eb2687bea9b2e604ee89a9696b9889370b35069a976ea42da15540"
+
+[tool.hardware]
+# TODO: update if this tool has known hardware requirements
+cpu_cores = 1
+ram_gb = 2.0
+disk_gb = 1.0
+
+# TODO: declare typed I/O before promoting to bv-registry.
+# Available types: https://github.com/mlberkeley/bv/blob/main/bv-types/types.toml
+#
+# Example:
+# [[tool.inputs]]
+# name = "query"
+# type = "fasta"
+# cardinality = "one"
+# description = "Input sequences"
+#
+# [[tool.outputs]]
+# name = "output"
+# type = "blast_tab"
+# cardinality = "one"
+# description = "Results"
+
+[tool.entrypoint]
+# Auto-detected from recipe test commands. Verify this is correct.
+command = "ArcSV"
+
+# Auto-detected from recipe test commands. Verify and add any missing binaries.
+[tool.binaries]
+exposed = [
+  "ArcSV",
+]
