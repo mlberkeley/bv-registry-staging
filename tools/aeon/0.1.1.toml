@@ -1,0 +1,47 @@
+# Auto-generated from Bioconda recipe by bv-ingest.
+# Fill in [[tool.inputs]] and [[tool.outputs]] before promoting to bv-registry.
+# Run `bv-ingest promote aeon 0.1.1` when ready.
+
+[tool]
+id = "aeon"
+version = "0.1.1"
+description = "Python/Rust library for symbolic manipulation of Boolean networks."
+homepage = "https://github.com/sybila/biodivine-aeon-py"
+license = "MIT License"
+
+[tool.image]
+backend = "docker"
+reference = "quay.io/biocontainers/aeon:0.1.1--py39hb377b6a_2"
+digest = "sha256:e8685403fa9309c9183fb9b867423544f9d453c158ed1b2304c67d790b251b22"
+
+[tool.hardware]
+# TODO: update if this tool has known hardware requirements
+cpu_cores = 1
+ram_gb = 2.0
+disk_gb = 1.0
+
+# TODO: declare typed I/O before promoting to bv-registry.
+# Available types: https://github.com/mlberkeley/bv/blob/main/bv-types/types.toml
+#
+# Example:
+# [[tool.inputs]]
+# name = "query"
+# type = "fasta"
+# cardinality = "one"
+# description = "Input sequences"
+#
+# [[tool.outputs]]
+# name = "output"
+# type = "blast_tab"
+# cardinality = "one"
+# description = "Results"
+
+[tool.entrypoint]
+# TODO: set the correct entrypoint command
+command = "aeon"
+
+# Derived from entrypoint only. Add other binaries this tool exposes.
+[tool.binaries]
+exposed = [
+  "aeon",
+]
