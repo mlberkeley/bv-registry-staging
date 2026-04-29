@@ -19,22 +19,29 @@ digest = "sha256:c234ca5adebd43bb94fbc01d5bf9653bca3e017913aa767ae858bffc245ba86
 cpu_cores = 1
 ram_gb = 2.0
 disk_gb = 1.0
+[[tool.inputs]]
+name = "structure_a"
+type = "pdb"
+cardinality = "one"
+description = "First structure to align"
 
-# TODO: declare typed I/O before promoting to bv-registry.
-# Available types: https://github.com/mlberkeley/bv/blob/main/bv-types/types.toml
-#
-# Example:
-# [[tool.inputs]]
-# name = "query"
-# type = "fasta"
-# cardinality = "one"
-# description = "Input sequences"
-#
-# [[tool.outputs]]
-# name = "output"
-# type = "blast_tab"
-# cardinality = "one"
-# description = "Results"
+[[tool.inputs]]
+name = "structure_b"
+type = "pdb"
+cardinality = "one"
+description = "Reference structure"
+
+[[tool.outputs]]
+name = "alignment"
+type = "file"
+cardinality = "one"
+description = "TM-score + aligned residue mapping (text)"
+
+[[tool.outputs]]
+name = "superposition"
+type = "pdb"
+cardinality = "optional"
+description = "Rotated structure_a aligned to structure_b (-o flag)"
 
 [tool.entrypoint]
 # Auto-detected from recipe test commands. Verify this is correct.
