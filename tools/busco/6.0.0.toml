@@ -19,22 +19,17 @@ digest = "sha256:9450959bc503533acf604c514712b9fd5944f9a277ef13c6026e9f4e188147c
 cpu_cores = 1
 ram_gb = 2.0
 disk_gb = 1.0
+[[tool.inputs]]
+name = "sequences"
+type = "fasta"
+cardinality = "one"
+description = "Assembly, transcriptome, or proteome to assess"
 
-# TODO: declare typed I/O before promoting to bv-registry.
-# Available types: https://github.com/mlberkeley/bv/blob/main/bv-types/types.toml
-#
-# Example:
-# [[tool.inputs]]
-# name = "query"
-# type = "fasta"
-# cardinality = "one"
-# description = "Input sequences"
-#
-# [[tool.outputs]]
-# name = "output"
-# type = "blast_tab"
-# cardinality = "one"
-# description = "Results"
+[[tool.outputs]]
+name = "results"
+type = "dir"
+cardinality = "one"
+description = "BUSCO output dir (short_summary.txt, full_table.tsv, missing_busco_list.tsv, run_*/)"
 
 [tool.entrypoint]
 # Auto-detected from recipe test commands. Verify this is correct.
