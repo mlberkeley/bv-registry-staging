@@ -1,0 +1,47 @@
+# Auto-generated from Bioconda recipe by bv-ingest.
+# Fill in [[tool.inputs]] and [[tool.outputs]] before promoting to bv-registry.
+# Run `bv-ingest promote picard 3.4.0` when ready.
+
+[tool]
+id = "picard"
+version = "3.4.0"
+description = "Java tools for working with NGS data in the BAM format"
+homepage = "http://broadinstitute.github.io/picard/"
+license = "MIT"
+
+[tool.image]
+backend = "docker"
+reference = "quay.io/biocontainers/picard:3.4.0--hdfd78af_0"
+digest = "sha256:96b49340dea0ef5bc402d865a2b02032949f13ee57151909328d4eb1b3bcecbc"
+
+[tool.hardware]
+# TODO: update if this tool has known hardware requirements
+cpu_cores = 1
+ram_gb = 2.0
+disk_gb = 1.0
+
+# TODO: declare typed I/O before promoting to bv-registry.
+# Available types: https://github.com/mlberkeley/bv/blob/main/bv-types/types.toml
+#
+# Example:
+# [[tool.inputs]]
+# name = "query"
+# type = "fasta"
+# cardinality = "one"
+# description = "Input sequences"
+#
+# [[tool.outputs]]
+# name = "output"
+# type = "blast_tab"
+# cardinality = "one"
+# description = "Results"
+
+[tool.entrypoint]
+# Auto-detected from recipe test commands. Verify this is correct.
+command = "picard"
+
+# Derived from entrypoint only. Add other binaries this tool exposes.
+[tool.binaries]
+exposed = [
+  "picard",
+]
