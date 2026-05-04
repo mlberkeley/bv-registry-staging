@@ -1,0 +1,47 @@
+# Auto-generated from Bioconda recipe by bv-ingest.
+# Fill in [[tool.inputs]] and [[tool.outputs]] before promoting to bv-registry.
+# Run `bv-ingest promote arem 1.0.1` when ready.
+
+[tool]
+id = "arem"
+version = "1.0.1"
+description = "Aligning Reads by Expectation-Maximization.\nBased on MACS (Model Based Analysis for ChIP-Seq data)"
+homepage = "http://cbcl.ics.uci.edu/AREM"
+license = "Artistic License"
+
+[tool.image]
+backend = "docker"
+reference = "quay.io/biocontainers/arem:1.0.1--py27_0"
+digest = "sha256:e2c45971fd06576e79292c52aa8f99042d674a4322dfec80135784e01258d4b2"
+
+[tool.hardware]
+# TODO: update if this tool has known hardware requirements
+cpu_cores = 1
+ram_gb = 2.0
+disk_gb = 1.0
+
+# TODO: declare typed I/O before promoting to bv-registry.
+# Available types: https://github.com/mlberkeley/bv/blob/main/bv-types/types.toml
+#
+# Example:
+# [[tool.inputs]]
+# name = "query"
+# type = "fasta"
+# cardinality = "one"
+# description = "Input sequences"
+#
+# [[tool.outputs]]
+# name = "output"
+# type = "blast_tab"
+# cardinality = "one"
+# description = "Results"
+
+[tool.entrypoint]
+# TODO: set the correct entrypoint command
+command = "arem"
+
+# Derived from entrypoint only. Add other binaries this tool exposes.
+[tool.binaries]
+exposed = [
+  "arem",
+]
