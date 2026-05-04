@@ -1,0 +1,54 @@
+# Auto-generated from Bioconda recipe by bv-ingest.
+# Fill in [[tool.inputs]] and [[tool.outputs]] before promoting to bv-registry.
+# Run `bv-ingest promote aquila_stlfr 1.2.11` when ready.
+
+[tool]
+id = "aquila_stlfr"
+version = "1.2.11"
+description = "Diploid assembly and variants calling for stLFR and hybrid assembler for both linked-reads."
+homepage = "https://github.com/maiziex/Aquila_stLFR"
+license = "MIT"
+
+[tool.image]
+backend = "docker"
+reference = "quay.io/biocontainers/aquila_stlfr:1.2.11--py_0"
+digest = "sha256:ae8be97c7aca176bf0ecffcc3990a136fe73fdbdf9388909ec53cf80043556b1"
+
+[tool.hardware]
+# TODO: update if this tool has known hardware requirements
+cpu_cores = 1
+ram_gb = 2.0
+disk_gb = 1.0
+
+# TODO: declare typed I/O before promoting to bv-registry.
+# Available types: https://github.com/mlberkeley/bv/blob/main/bv-types/types.toml
+#
+# Example:
+# [[tool.inputs]]
+# name = "query"
+# type = "fasta"
+# cardinality = "one"
+# description = "Input sequences"
+#
+# [[tool.outputs]]
+# name = "output"
+# type = "blast_tab"
+# cardinality = "one"
+# description = "Results"
+
+[tool.entrypoint]
+# Auto-detected from recipe test commands. Verify this is correct.
+command = "Aquila_stLFR_step1"
+
+# Auto-detected from recipe test commands. Verify and add any missing binaries.
+[tool.binaries]
+exposed = [
+  "Aquila_stLFR_step1",
+  "Aquila_stLFR_step2",
+  "Aquila_stLFR_clean",
+  "Aquila_step1_hybrid",
+  "Aquila_stLFR_assembly_based_variants_call",
+  "Aquila_stLFR_phasing_all_variants",
+  "Aquila_step0_sortbam_hybrid",
+  "Aquila_stLFR_fastq_preprocess",
+]
