@@ -1,0 +1,50 @@
+# Auto-generated from Bioconda recipe by bv-ingest.
+# Fill in [[tool.inputs]] and [[tool.outputs]] before promoting to bv-registry.
+# Run `bv-ingest promote ale 20180904` when ready.
+
+[tool]
+id = "ale"
+version = "20180904"
+description = "ALE: Assembly Likelihood Estimator"
+homepage = "https://github.com/sc932/ALE"
+license = "NCSA"
+
+[tool.image]
+backend = "docker"
+reference = "quay.io/biocontainers/ale:20180904--py27ha92aebf_0"
+digest = "sha256:3f84a9c5ae37f6de93edb1543834a73bc9f285a83c5a42e3f0db0b41e2e7b85e"
+
+[tool.hardware]
+# TODO: update if this tool has known hardware requirements
+cpu_cores = 1
+ram_gb = 2.0
+disk_gb = 1.0
+
+[[tool.inputs]]
+name = "assembly"
+type = "fasta"
+cardinality = "one"
+description = "Assembly to score"
+
+[[tool.inputs]]
+name = "alignments"
+type = "bam"
+cardinality = "one"
+description = "Reads aligned back to the assembly"
+
+[[tool.outputs]]
+name = "score"
+type = "file"
+cardinality = "one"
+description = "ALE likelihood score and per-position breakdown"
+
+[tool.entrypoint]
+# Auto-detected from recipe test commands. Verify this is correct.
+command = "ALE"
+
+# Auto-detected from recipe test commands. Verify and add any missing binaries.
+[tool.binaries]
+exposed = [
+  "ALE",
+  "synthReadGen",
+]
