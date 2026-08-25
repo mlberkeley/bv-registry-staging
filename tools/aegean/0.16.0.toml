@@ -1,0 +1,50 @@
+# Auto-generated from Bioconda recipe by bv-ingest.
+# Fill in [[tool.inputs]] and [[tool.outputs]] before promoting to bv-registry.
+# Run `bv-ingest promote aegean 0.16.0` when ready.
+
+[tool]
+id = "aegean"
+version = "0.16.0"
+description = "The AEGeAn Toolkit provides a bundle of software tools for evaluating gene structure annotations and genome organization. The software is implemented in C and Python."
+homepage = "https://github.com/BrendelGroup/AEGeAn"
+license = "ISC License"
+
+[tool.image]
+backend = "docker"
+reference = "quay.io/biocontainers/aegean:0.16.0--h71bfec9_5"
+digest = "sha256:b27edd1c3dc909daba267be9abba041269f8cf7ae26003a9a6e0c293974043f2"
+
+[tool.hardware]
+# TODO: update if this tool has known hardware requirements
+cpu_cores = 1
+ram_gb = 2.0
+disk_gb = 1.0
+
+[[tool.inputs]]
+name = "reference"
+type = "file"
+cardinality = "one"
+description = "Reference gene annotations (GFF3)"
+
+[[tool.inputs]]
+name = "prediction"
+type = "file"
+cardinality = "one"
+description = "Predicted gene annotations (GFF3)"
+
+[[tool.outputs]]
+name = "comparison"
+type = "file"
+cardinality = "one"
+description = "ParsEval comparative-annotation report"
+
+[tool.entrypoint]
+# Auto-detected from recipe test commands. Verify this is correct.
+command = "parseval"
+
+# Auto-detected from recipe test commands. Verify and add any missing binaries.
+[tool.binaries]
+exposed = [
+  "parseval",
+  "canon-gff3",
+]
