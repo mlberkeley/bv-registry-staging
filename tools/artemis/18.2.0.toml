@@ -1,0 +1,47 @@
+# Auto-generated from Bioconda recipe by bv-ingest.
+# Fill in [[tool.inputs]] and [[tool.outputs]] before promoting to bv-registry.
+# Run `bv-ingest promote artemis 18.2.0` when ready.
+
+[tool]
+id = "artemis"
+version = "18.2.0"
+description = "A set of Java genome visualization tools including the Artemis genome browser & annotation tool, ACT DNA sequence comparison viewer, DNA Plotter image generation tool and the BamView BAM/CRAM file viewer."
+homepage = "http://sanger-pathogens.github.io/Artemis/"
+license = "GPL-3.0"
+
+[tool.image]
+backend = "docker"
+reference = "quay.io/biocontainers/artemis:18.2.0--hdfd78af_0"
+digest = "sha256:32631ed5f8614920c5e8c0402a0d25ecc5f951aef599264d5a26a01226dc231e"
+
+[tool.hardware]
+# TODO: update if this tool has known hardware requirements
+cpu_cores = 1
+ram_gb = 2.0
+disk_gb = 1.0
+
+# TODO: declare typed I/O before promoting to bv-registry.
+# Available types: https://github.com/mlberkeley/bv/blob/main/bv-types/types.toml
+#
+# Example:
+# [[tool.inputs]]
+# name = "query"
+# type = "fasta"
+# cardinality = "one"
+# description = "Input sequences"
+#
+# [[tool.outputs]]
+# name = "output"
+# type = "blast_tab"
+# cardinality = "one"
+# description = "Results"
+
+[tool.entrypoint]
+# Auto-detected from recipe test commands. Verify this is correct.
+command = "art"
+
+# Auto-detected from recipe test commands. Verify and add any missing binaries.
+[tool.binaries]
+exposed = [
+  "art",
+]
