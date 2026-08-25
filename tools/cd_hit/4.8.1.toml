@@ -1,0 +1,49 @@
+# Auto-generated from Bioconda recipe by bv-ingest.
+# Fill in [[tool.inputs]] and [[tool.outputs]] before promoting to bv-registry.
+# Run `bv-ingest promote cd_hit 4.8.1` when ready.
+
+[tool]
+id = "cd_hit"
+version = "4.8.1"
+description = "Clusters and compares protein or nucleotide sequences."
+homepage = "https://github.com/weizhongli/cdhit"
+license = "GPL-2.0-or-later"
+
+[tool.image]
+backend = "docker"
+reference = "quay.io/biocontainers/cd-hit:4.8.1--h5ca1c30_13"
+digest = "sha256:6cf8bf310be10dd43a85376e78d2915d2d094dd8b8c84d03c0bc13f73ab63fa2"
+
+[tool.hardware]
+# TODO: update if this tool has known hardware requirements
+cpu_cores = 1
+ram_gb = 2.0
+disk_gb = 1.0
+
+[[tool.inputs]]
+name = "sequences"
+type = "fasta[protein]"
+cardinality = "one"
+description = "Sequences to cluster"
+
+[[tool.outputs]]
+name = "representatives"
+type = "fasta[protein]"
+cardinality = "one"
+description = "Representative sequence of each cluster"
+
+[[tool.outputs]]
+name = "clusters"
+type = "file"
+cardinality = "one"
+description = "Cluster membership listing (.clstr)"
+
+[tool.entrypoint]
+# Auto-detected from recipe test commands. Verify this is correct.
+command = "cd-hit"
+
+# Auto-detected from recipe test commands. Verify and add any missing binaries.
+[tool.binaries]
+exposed = [
+  "cd-hit",
+]
