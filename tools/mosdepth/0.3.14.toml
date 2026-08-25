@@ -1,0 +1,49 @@
+# Auto-generated from Bioconda recipe by bv-ingest.
+# Fill in [[tool.inputs]] and [[tool.outputs]] before promoting to bv-registry.
+# Run `bv-ingest promote mosdepth 0.3.14` when ready.
+
+[tool]
+id = "mosdepth"
+version = "0.3.14"
+description = "Fast BAM/CRAM depth calculation for WGS, exome, or targeted sequencing."
+homepage = "https://github.com/brentp/mosdepth"
+license = "MIT"
+
+[tool.image]
+backend = "docker"
+reference = "quay.io/biocontainers/mosdepth:0.3.14--h05c3d44_0"
+digest = "sha256:50a99dc99f7ede1475976a3f562ffd682d839d69f68ce439f441dd553b3172bc"
+
+[tool.hardware]
+# TODO: update if this tool has known hardware requirements
+cpu_cores = 1
+ram_gb = 2.0
+disk_gb = 1.0
+
+[[tool.inputs]]
+name = "alignments"
+type = "bam"
+cardinality = "one"
+description = "Sorted, indexed BAM/CRAM alignments"
+
+[[tool.outputs]]
+name = "summary"
+type = "tabular"
+cardinality = "one"
+description = "Per-chromosome depth summary (.mosdepth.summary.txt)"
+
+[[tool.outputs]]
+name = "per_base"
+type = "file"
+cardinality = "optional"
+description = "Per-base or per-region depth BED (.per-base.bed.gz)"
+
+[tool.entrypoint]
+# Auto-detected from recipe test commands. Verify this is correct.
+command = "mosdepth"
+
+# Auto-detected from recipe test commands. Verify and add any missing binaries.
+[tool.binaries]
+exposed = [
+  "mosdepth",
+]
