@@ -1,0 +1,49 @@
+# Auto-generated from Bioconda recipe by bv-ingest.
+# Fill in [[tool.inputs]] and [[tool.outputs]] before promoting to bv-registry.
+# Run `bv-ingest promote 3d_dna 201008` when ready.
+
+[tool]
+id = "3d_dna"
+version = "201008"
+description = "3D de novo assembly (3D-DNA) pipeline."
+homepage = "https://github.com/aidenlab/3d-dna/tree/201008"
+license = "MIT"
+
+[tool.image]
+backend = "docker"
+reference = "quay.io/biocontainers/3d-dna:201008--hdfd78af_0"
+digest = "sha256:74e593f6d5c825511c83f081d73389dc1bd58ed43ddd023e5f506eed1ad3cab7"
+
+[tool.hardware]
+# TODO: update if this tool has known hardware requirements
+cpu_cores = 1
+ram_gb = 2.0
+disk_gb = 1.0
+
+[[tool.inputs]]
+name = "contigs"
+type = "fasta"
+cardinality = "one"
+description = "Draft assembly contigs"
+
+[[tool.inputs]]
+name = "contacts"
+type = "file"
+cardinality = "one"
+description = "Hi-C contact list (merged_nodups.txt from Juicer)"
+
+[[tool.outputs]]
+name = "assembly"
+type = "dir"
+cardinality = "one"
+description = "3D-DNA scaffolding output (.assembly, .hic, scaffolded FASTA)"
+
+[tool.entrypoint]
+# Auto-detected from recipe test commands. Verify this is correct.
+command = "3d-dna"
+
+# Auto-detected from recipe test commands. Verify and add any missing binaries.
+[tool.binaries]
+exposed = [
+  "3d-dna",
+]
