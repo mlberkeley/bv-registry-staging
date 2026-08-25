@@ -1,0 +1,56 @@
+# Auto-generated from Bioconda recipe by bv-ingest.
+# Fill in [[tool.inputs]] and [[tool.outputs]] before promoting to bv-registry.
+# Run `bv-ingest promote asgal 1.1.8` when ready.
+
+[tool]
+id = "asgal"
+version = "1.1.8"
+description = "A graph aligner"
+homepage = "https://asgal.algolab.eu/"
+license = "GPL-3.0-or-later"
+
+[tool.image]
+backend = "docker"
+reference = "quay.io/biocontainers/asgal:1.1.8--h5ca1c30_2"
+digest = "sha256:0a5c39a291aef576d2183f5236b05b10afa15d0a9ab47ad5a679b22f6e62c155"
+
+[tool.hardware]
+# TODO: update if this tool has known hardware requirements
+cpu_cores = 1
+ram_gb = 2.0
+disk_gb = 1.0
+
+[[tool.inputs]]
+name = "genome"
+type = "fasta"
+cardinality = "one"
+description = "Reference genome"
+
+[[tool.inputs]]
+name = "annotation"
+type = "file"
+cardinality = "one"
+description = "Gene annotation (GTF)"
+
+[[tool.inputs]]
+name = "reads"
+type = "fastq"
+cardinality = "one"
+description = "RNA-seq reads to align"
+
+[[tool.outputs]]
+name = "results"
+type = "dir"
+cardinality = "one"
+description = "Splice-aware alignments and detected splicing events"
+
+[tool.entrypoint]
+# Auto-detected from recipe test commands. Verify this is correct.
+command = "SpliceAwareAligner"
+
+# Auto-detected from recipe test commands. Verify and add any missing binaries.
+[tool.binaries]
+exposed = [
+  "SpliceAwareAligner",
+  "asgal",
+]
