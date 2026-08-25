@@ -1,0 +1,46 @@
+# Auto-generated from Bioconda recipe by bv-ingest.
+# Fill in [[tool.inputs]] and [[tool.outputs]] before promoting to bv-registry.
+# Run `bv-ingest promote mash 2.3.0` when ready.
+
+[tool]
+id = "mash"
+version = "2.3.0"
+description = "Fast sequence distance estimator that uses MinHash."
+homepage = "https://github.com/marbl/Mash"
+license = "https://github.com/marbl/Mash/blob/master/LICENSE.txt"
+
+[tool.image]
+backend = "docker"
+reference = "quay.io/biocontainers/mash:2.3--hb105d93_10"
+digest = "sha256:57e2af229b118c706b09d864f0a14c9fa99803c1d38e5f22ef3cbdc7c2ad3c1e"
+
+[tool.metadata]
+upstream_version = "2.3"
+
+[tool.hardware]
+# TODO: update if this tool has known hardware requirements
+cpu_cores = 1
+ram_gb = 2.0
+disk_gb = 1.0
+
+[[tool.inputs]]
+name = "sequences"
+type = "fasta"
+cardinality = "many"
+description = "Sequences or assemblies to sketch or compare"
+
+[[tool.outputs]]
+name = "sketch"
+type = "file"
+cardinality = "one"
+description = "MinHash sketch (.msh) or pairwise distance table"
+
+[tool.entrypoint]
+# Auto-detected from recipe test commands. Verify this is correct.
+command = "mash"
+
+# Auto-detected from recipe test commands. Verify and add any missing binaries.
+[tool.binaries]
+exposed = [
+  "mash",
+]
