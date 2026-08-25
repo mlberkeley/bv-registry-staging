@@ -1,0 +1,47 @@
+# Auto-generated from Bioconda recipe by bv-ingest.
+# Fill in [[tool.inputs]] and [[tool.outputs]] before promoting to bv-registry.
+# Run `bv-ingest promote arvados_cli 0.1.20151207150126` when ready.
+
+[tool]
+id = "arvados_cli"
+version = "0.1.20151207150126"
+description = "Command line interface to Arvados, a free and open source platform for big data science"
+homepage = "http://doc.arvados.org/sdk/cli/index.html"
+license = "Apache v2"
+
+[tool.image]
+backend = "docker"
+reference = "quay.io/biocontainers/arvados-cli:0.1.20151207150126--0"
+digest = "sha256:32f7c5728300e118a11b58df80c39dd423c9330b7572b9ae37d051549d6b3cf0"
+
+[tool.hardware]
+# TODO: update if this tool has known hardware requirements
+cpu_cores = 1
+ram_gb = 2.0
+disk_gb = 1.0
+
+# TODO: declare typed I/O before promoting to bv-registry.
+# Available types: https://github.com/mlberkeley/bv/blob/main/bv-types/types.toml
+#
+# Example:
+# [[tool.inputs]]
+# name = "query"
+# type = "fasta"
+# cardinality = "one"
+# description = "Input sequences"
+#
+# [[tool.outputs]]
+# name = "output"
+# type = "blast_tab"
+# cardinality = "one"
+# description = "Results"
+
+[tool.entrypoint]
+# Auto-detected from recipe test commands. Verify this is correct.
+command = "arv"
+
+# Auto-detected from recipe test commands. Verify and add any missing binaries.
+[tool.binaries]
+exposed = [
+  "arv",
+]
