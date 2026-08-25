@@ -1,0 +1,49 @@
+# Auto-generated from Bioconda recipe by bv-ingest.
+# Fill in [[tool.inputs]] and [[tool.outputs]] before promoting to bv-registry.
+# Run `bv-ingest promote alder 1.03` when ready.
+
+[tool]
+id = "alder"
+version = "1.03"
+description = "The ALDER software computes the weighted linkage disequilibrium (LD) statistic for making inference about population admixture"
+homepage = "http://cb.csail.mit.edu/cb/alder/"
+license = "Custom OSS"
+
+[tool.image]
+backend = "docker"
+reference = "quay.io/biocontainers/alder:1.03--h13c21de_7"
+digest = "sha256:617c80b185a142d7287b0f087a4e12466edb68793285799f814118f5d8f9ccc6"
+
+[tool.hardware]
+# TODO: update if this tool has known hardware requirements
+cpu_cores = 1
+ram_gb = 2.0
+disk_gb = 1.0
+
+[[tool.inputs]]
+name = "genotypes"
+type = "file"
+cardinality = "one"
+description = "PLINK-format genotype data"
+
+[[tool.inputs]]
+name = "params"
+type = "file"
+cardinality = "one"
+description = "ALDER parameter file"
+
+[[tool.outputs]]
+name = "results"
+type = "file"
+cardinality = "one"
+description = "Weighted-LD admixture-dating results"
+
+[tool.entrypoint]
+# Auto-detected from recipe test commands. Verify this is correct.
+command = "alder"
+
+# Auto-detected from recipe test commands. Verify and add any missing binaries.
+[tool.binaries]
+exposed = [
+  "alder",
+]
