@@ -1,0 +1,43 @@
+# Auto-generated from Bioconda recipe by bv-ingest.
+# Fill in [[tool.inputs]] and [[tool.outputs]] before promoting to bv-registry.
+# Run `bv-ingest promote bamtools 2.5.3` when ready.
+
+[tool]
+id = "bamtools"
+version = "2.5.3"
+description = "C++ API & command-line toolkit for working with BAM data."
+homepage = "https://github.com/pezmaster31/bamtools"
+license = "MIT"
+
+[tool.image]
+backend = "docker"
+reference = "quay.io/biocontainers/bamtools:2.5.3--he132191_0"
+digest = "sha256:b25c726fb17f173d0971615b5d907b11bfc12021b7a7744e36a630906998689b"
+
+[tool.hardware]
+# TODO: update if this tool has known hardware requirements
+cpu_cores = 1
+ram_gb = 2.0
+disk_gb = 1.0
+
+[[tool.inputs]]
+name = "alignments"
+type = "bam"
+cardinality = "one"
+description = "Input alignments in BAM format"
+
+[[tool.outputs]]
+name = "output"
+type = "bam"
+cardinality = "one"
+description = "Filtered, merged, or converted BAM output"
+
+[tool.entrypoint]
+# Auto-detected from recipe test commands. Verify this is correct.
+command = "bamtools"
+
+# Auto-detected from recipe test commands. Verify and add any missing binaries.
+[tool.binaries]
+exposed = [
+  "bamtools",
+]
