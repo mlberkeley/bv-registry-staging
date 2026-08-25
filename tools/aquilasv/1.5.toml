@@ -1,0 +1,51 @@
+# Auto-generated from Bioconda recipe by bv-ingest.
+# Fill in [[tool.inputs]] and [[tool.outputs]] before promoting to bv-registry.
+# Run `bv-ingest promote aquilasv 1.5` when ready.
+
+[tool]
+id = "aquilasv"
+version = "1.5"
+description = "A region-based diploid assembly and variants calling tool"
+homepage = "https://github.com/maiziezhoulab/AquilaSV"
+license = "MIT"
+
+[tool.image]
+backend = "docker"
+reference = "quay.io/biocontainers/aquilasv:1.5--pyhdfd78af_0"
+digest = "sha256:1170144f456ef04dc429ba3ff3daacf3e079050a6c8c71a6470bb50690140876"
+
+[tool.hardware]
+# TODO: update if this tool has known hardware requirements
+cpu_cores = 1
+ram_gb = 2.0
+disk_gb = 1.0
+
+[[tool.inputs]]
+name = "alignments"
+type = "bam"
+cardinality = "one"
+description = "Linked-read alignments for the target region"
+
+[[tool.inputs]]
+name = "reference"
+type = "fasta"
+cardinality = "one"
+description = "Reference genome"
+
+[[tool.outputs]]
+name = "variants"
+type = "vcf"
+cardinality = "one"
+description = "Region-based diploid structural-variant calls"
+
+[tool.entrypoint]
+# Auto-detected from recipe test commands. Verify this is correct.
+command = "AquilaSV_step1"
+
+# Auto-detected from recipe test commands. Verify and add any missing binaries.
+[tool.binaries]
+exposed = [
+  "AquilaSV_step1",
+  "AquilaSV_step2",
+  "AquilaSV_step3",
+]
