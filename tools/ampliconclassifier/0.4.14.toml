@@ -1,0 +1,52 @@
+# Auto-generated from Bioconda recipe by bv-ingest.
+# Fill in [[tool.inputs]] and [[tool.outputs]] before promoting to bv-registry.
+# Run `bv-ingest promote ampliconclassifier 0.4.14` when ready.
+
+[tool]
+id = "ampliconclassifier"
+version = "0.4.14"
+description = "AmpliconClassifier classifies the output of AmpliconArchitect to detect different types of focal amplifications."
+homepage = "https://github.com/jluebeck/AmpliconClassifier"
+license = "BSD 2-Clause"
+
+[tool.image]
+backend = "docker"
+reference = "quay.io/biocontainers/ampliconclassifier:0.4.14--hdfd78af_0"
+digest = "sha256:ac2c6ea300c53e5905d0709e0df3e6c862bfa910f7a524d3be0db24b28742127"
+
+[tool.hardware]
+# TODO: update if this tool has known hardware requirements
+cpu_cores = 1
+ram_gb = 2.0
+disk_gb = 1.0
+
+[[tool.inputs]]
+name = "graph"
+type = "file"
+cardinality = "one"
+description = "AmpliconArchitect graph file"
+
+[[tool.inputs]]
+name = "cycles"
+type = "file"
+cardinality = "one"
+description = "AmpliconArchitect cycles file"
+
+[[tool.outputs]]
+name = "classification"
+type = "tabular"
+cardinality = "one"
+description = "Focal-amplification class calls"
+
+[tool.entrypoint]
+# Auto-detected from recipe test commands. Verify this is correct.
+command = "amplicon_classifier.py"
+
+# Auto-detected from recipe test commands. Verify and add any missing binaries.
+[tool.binaries]
+exposed = [
+  "amplicon_classifier.py",
+  "amplicon_similarity.py",
+  "amplicons_intersecting_bed.py",
+  "make_results_table.py",
+]
