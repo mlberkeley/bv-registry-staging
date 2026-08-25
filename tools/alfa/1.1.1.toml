@@ -1,0 +1,49 @@
+# Auto-generated from Bioconda recipe by bv-ingest.
+# Fill in [[tool.inputs]] and [[tool.outputs]] before promoting to bv-registry.
+# Run `bv-ingest promote alfa 1.1.1` when ready.
+
+[tool]
+id = "alfa"
+version = "1.1.1"
+description = "A simple software to get a quick overview of features composing NGS dataset(s)."
+homepage = "https://github.com/biocompibens/ALFA"
+license = "MIT"
+
+[tool.image]
+backend = "docker"
+reference = "quay.io/biocontainers/alfa:1.1.1--pyh5e36f6f_0"
+digest = "sha256:fcb14e5153096d7faada4911989566038f1eca4899db82706478a360fe9af660"
+
+[tool.hardware]
+# TODO: update if this tool has known hardware requirements
+cpu_cores = 1
+ram_gb = 2.0
+disk_gb = 1.0
+
+[[tool.inputs]]
+name = "alignments"
+type = "bam"
+cardinality = "many"
+description = "Aligned RNA-seq reads"
+
+[[tool.inputs]]
+name = "annotation"
+type = "file"
+cardinality = "one"
+description = "Genome annotation (GTF)"
+
+[[tool.outputs]]
+name = "report"
+type = "dir"
+cardinality = "one"
+description = "Feature-composition tables and plots"
+
+[tool.entrypoint]
+# TODO: set the correct entrypoint command
+command = "alfa"
+
+# Derived from entrypoint only. Add other binaries this tool exposes.
+[tool.binaries]
+exposed = [
+  "alfa",
+]
