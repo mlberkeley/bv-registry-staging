@@ -1,0 +1,49 @@
+# Auto-generated from Bioconda recipe by bv-ingest.
+# Fill in [[tool.inputs]] and [[tool.outputs]] before promoting to bv-registry.
+# Run `bv-ingest promote abra2 2.24` when ready.
+
+[tool]
+id = "abra2"
+version = "2.24"
+description = "ABRA2 is an updated implementation of ABRA"
+homepage = "https://github.com/mozack/abra2"
+license = "MIT"
+
+[tool.image]
+backend = "docker"
+reference = "quay.io/biocontainers/abra2:2.24--hdcf5f25_3"
+digest = "sha256:b9246f5a0746ced3273db776f647925445ba99230a9d53b6cdf2229714e0505b"
+
+[tool.hardware]
+# TODO: update if this tool has known hardware requirements
+cpu_cores = 1
+ram_gb = 2.0
+disk_gb = 1.0
+
+[[tool.inputs]]
+name = "alignments"
+type = "bam"
+cardinality = "many"
+description = "Alignments to realign"
+
+[[tool.inputs]]
+name = "reference"
+type = "fasta"
+cardinality = "one"
+description = "Reference genome"
+
+[[tool.outputs]]
+name = "realigned"
+type = "bam"
+cardinality = "many"
+description = "Locally realigned alignments"
+
+[tool.entrypoint]
+# Auto-detected from recipe test commands. Verify this is correct.
+command = "abra2"
+
+# Auto-detected from recipe test commands. Verify and add any missing binaries.
+[tool.binaries]
+exposed = [
+  "abra2",
+]
