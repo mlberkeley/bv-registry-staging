@@ -1,0 +1,49 @@
+# Auto-generated from Bioconda recipe by bv-ingest.
+# Fill in [[tool.inputs]] and [[tool.outputs]] before promoting to bv-registry.
+# Run `bv-ingest promote align_it 1.0.4` when ready.
+
+[tool]
+id = "align_it"
+version = "1.0.4"
+description = "Align-it is a tool to align molecules according to their pharmacophores. A pharmacophore is an abstract concept based on the specific interactions observed in drug-receptor interactions: hydrogen bonding, charge transfer, electrostatic and hydrophobic interactions."
+homepage = "http://silicos-it.be.s3-website-eu-west-1.amazonaws.com/software/align-it/1.0.4/align-it.html"
+license = "LGPL"
+
+[tool.image]
+backend = "docker"
+reference = "quay.io/biocontainers/align_it:1.0.4--h077b44d_4"
+digest = "sha256:9542159529a7c9a43b841f53e5e7a2605708a9c996850c4917fc8004fc62e75e"
+
+[tool.hardware]
+# TODO: update if this tool has known hardware requirements
+cpu_cores = 1
+ram_gb = 2.0
+disk_gb = 1.0
+
+[[tool.inputs]]
+name = "reference"
+type = "file"
+cardinality = "one"
+description = "Reference molecule(s) in a supported chemical format"
+
+[[tool.inputs]]
+name = "database"
+type = "file"
+cardinality = "one"
+description = "Molecule database to align against"
+
+[[tool.outputs]]
+name = "alignments"
+type = "file"
+cardinality = "one"
+description = "Pharmacophore alignment scores and poses"
+
+[tool.entrypoint]
+# Auto-detected from recipe test commands. Verify this is correct.
+command = "align-it"
+
+# Auto-detected from recipe test commands. Verify and add any missing binaries.
+[tool.binaries]
+exposed = [
+  "align-it",
+]
